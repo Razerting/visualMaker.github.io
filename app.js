@@ -42,10 +42,12 @@ const formats = [
 }));
 
 const fonts = [
+  { label: "REM (recommandé)", value: "REM, Arial, sans-serif" },
+  { label: "Baton Turbo (recommandé)", value: "\"Baton Turbo\", Arial, sans-serif" },
+  { label: "Inter (recommandé)", value: "Inter, Arial, sans-serif" },
   { label: "Arial (recommandé)", value: "Arial, Helvetica, sans-serif" },
   { label: "Helvetica Neue (recommandé)", value: "\"Helvetica Neue\", Helvetica, Arial, sans-serif" },
   { label: "Avenir Next (recommandé)", value: "\"Avenir Next\", Avenir, Arial, sans-serif" },
-  { label: "Inter", value: "Inter, Arial, sans-serif" },
   { label: "Verdana", value: "Verdana, Geneva, sans-serif" },
   { label: "Georgia", value: "Georgia, serif" },
   { label: "Times New Roman", value: "\"Times New Roman\", Times, serif" },
