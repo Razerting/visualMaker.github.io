@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drill Maker</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-label="Apercu de l'image">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Drill Maker</p>
+            <h1>Créateur de visuels web</h1>
+          </div>
+          <button class="download-button" id="downloadButton" type="button">
+            Télécharger le JPG
+          </button>
+        </div>
+
+        <div class="preview-wrap">
+          <canvas id="previewCanvas" width="1080" height="1080"></canvas>
+        </div>
+      </section>
+
+      <aside class="controls" aria-label="Parametres du visuel">
+        <section class="panel">
+          <h2>Format</h2>
+          <label class="field">
+            <span>Élément</span>
+            <select id="formatSelect"></select>
+          </label>
+          <div class="format-meta" id="formatMeta"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Fond</h2>
+          <div class="segmented" role="group" aria-label="Type de fond">
+            <button class="segment active" id="colorModeButton" type="button">Couleur</button>
+            <button class="segment" id="imageModeButton" type="button">Image</button>
+          </div>
+
+          <label class="field" id="backgroundColorField">
+            <span>Couleur du fond</span>
+            <input id="backgroundColor" type="color" value="#f7f6f2" />
+          </label>
+
+          <div class="upload-area hidden" id="uploadArea">
+            <input id="imageUpload" type="file" accept="image/png,image/jpeg,image/webp" />
+            <p>PNG, JPG ou WebP. Le fichier reste uniquement dans votre navigateur.</p>
+          </div>
+
+          <label class="field hidden" id="imageFitField">
+            <span>Recadrage</span>
+            <select id="imageFit">
+              <option value="cover">Remplir le format</option>
+              <option value="contain">Image entiere</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="panel">
+          <h2>Texte</h2>
+          <label class="field">
+            <span>Contenu</span>
+            <textarea id="textInput" rows="5">LIVRAISON
+ET RETOURS
+GRATUITS
+EN BOUTIQUE</textarea>
+          </label>
+
+          <div class="two-col">
+            <label class="field">
+              <span>Couleur</span>
+              <input id="textColor" type="color" value="#090909" />
+            </label>
+            <label class="field">
+              <span>Taille</span>
+              <input id="fontSize" type="number" min="24" max="220" step="2" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Interligne</span>
+            <input id="lineHeight" type="range" min="0.9" max="1.5" step="0.05" value="1.15" />
+          </label>
+
+          <div class="position-label">Position</div>
+          <div class="position-grid" id="positionGrid" role="radiogroup" aria-label="Position du texte">
+            <button type="button" data-x="left" data-y="top">↖</button>
+            <button type="button" data-x="center" data-y="top">↑</button>
+            <button type="button" data-x="right" data-y="top">↗</button>
+            <button type="button" data-x="left" data-y="middle">←</button>
+            <button type="button" data-x="center" data-y="middle">•</button>
+            <button type="button" data-x="right" data-y="middle">→</button>
+            <button class="active" type="button" data-x="left" data-y="bottom">↙</button>
+            <button type="button" data-x="center" data-y="bottom">↓</button>
+            <button type="button" data-x="right" data-y="bottom">↘</button>
+          </div>
+        </section>
+
+        <section class="panel subtle">
+          <h2>Export</h2>
+          <label class="field">
+            <span>Qualité JPG</span>
+            <input id="qualityRange" type="range" min="0.65" max="0.92" step="0.01" value="0.82" />
+          </label>
+          <p id="exportInfo" aria-live="polite">Export web optimisé en JPG.</p>
+        </section>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
