@@ -63,6 +63,12 @@
 
         <section class="panel">
           <h2>Texte</h2>
+          <div class="text-list-header">
+            <span>Blocs texte</span>
+            <button class="small-button" id="addTextButton" type="button">Ajouter</button>
+          </div>
+          <div class="text-list" id="textList" aria-label="Blocs texte"></div>
+
           <label class="field">
             <span>Contenu</span>
             <textarea id="textInput" rows="5">LIVRAISON
@@ -83,6 +89,11 @@ EN BOUTIQUE</textarea>
           </div>
 
           <label class="field">
+            <span>Police</span>
+            <select id="fontFamily"></select>
+          </label>
+
+          <label class="field">
             <span>Interligne</span>
             <input id="lineHeight" type="range" min="0.9" max="1.5" step="0.05" value="1.15" />
           </label>
@@ -99,13 +110,14 @@ EN BOUTIQUE</textarea>
             <button type="button" data-x="center" data-y="bottom">↓</button>
             <button type="button" data-x="right" data-y="bottom">↘</button>
           </div>
+          <button class="danger-button" id="removeTextButton" type="button">Supprimer ce texte</button>
         </section>
 
         <section class="panel subtle">
           <h2>Export</h2>
           <label class="field">
-            <span>Qualité JPG</span>
-            <input id="qualityRange" type="range" min="0.65" max="0.92" step="0.01" value="0.82" />
+            <span>Nom du fichier</span>
+            <input id="fileNameInput" type="text" value="drill-maker" autocomplete="off" />
           </label>
           <p id="exportInfo" aria-live="polite">Export web optimisé en JPG.</p>
         </section>

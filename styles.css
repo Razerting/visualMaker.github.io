@@ -154,7 +154,8 @@ canvas {
 
 select,
 textarea,
-input[type="number"] {
+input[type="number"],
+input[type="text"] {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -166,7 +167,8 @@ input[type="number"] {
 
 select:focus,
 textarea:focus,
-input[type="number"]:focus {
+input[type="number"]:focus,
+input[type="text"]:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(31, 95, 74, 0.14);
 }
@@ -241,6 +243,81 @@ input[type="range"] {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+}
+
+.text-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.small-button,
+.danger-button {
+  min-height: 36px;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.small-button {
+  border: 1px solid var(--accent);
+  background: #e7f0eb;
+  color: var(--accent-strong);
+}
+
+.danger-button {
+  width: 100%;
+  margin-top: 16px;
+  border: 1px solid #d8c6c2;
+  background: #fff7f5;
+  color: #8a2f22;
+}
+
+.danger-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.text-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.text-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 10px 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.text-item span {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.text-item small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.text-item.active {
+  border-color: var(--accent);
+  background: #edf5f0;
 }
 
 .position-label {
