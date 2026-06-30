@@ -42,9 +42,9 @@ const formats = [
 }));
 
 const fonts = [
-  { label: "REM (recommandé)", value: "REM, Arial, sans-serif" },
-  { label: "Baton Turbo (recommandé)", value: "\"Baton Turbo\", Arial, sans-serif" },
-  { label: "Inter (recommandé)", value: "Inter, Arial, sans-serif" },
+  { label: "REM (recommandé)", value: "\"REM\", Arial, sans-serif" },
+  { label: "Baton Turbo (recommandé)", value: "\"Baton Turbo\", \"BatonTurbo-Regular\", \"BatonTurboWeb-Regular\", Arial, sans-serif" },
+  { label: "Inter (recommandé)", value: "\"Inter\", Arial, sans-serif" },
   { label: "Arial (recommandé)", value: "Arial, Helvetica, sans-serif" },
   { label: "Helvetica Neue (recommandé)", value: "\"Helvetica Neue\", Helvetica, Arial, sans-serif" },
   { label: "Avenir Next (recommandé)", value: "\"Avenir Next\", Avenir, Arial, sans-serif" },
@@ -279,6 +279,11 @@ function draw() {
   renderTextList();
 }
 
+function redrawWhenFontsAreReady() {
+  if (!document.fonts) return;
+  document.fonts.ready.then(draw);
+}
+
 function updateExportInfo() {
   exportInfo.textContent = `Export JPG ${state.format.width} x ${state.format.height} px, qualité web optimisée.`;
 }
@@ -404,7 +409,10 @@ function bindEvents() {
   textInput.addEventListener("input", (event) => updateActiveText({ content: event.target.value }));
   textColor.addEventListener("input", (event) => updateActiveText({ color: event.target.value }));
   fontSize.addEventListener("input", (event) => updateActiveText({ fontSize: Number(event.target.value) }));
-  fontFamily.addEventListener("input", (event) => updateActiveText({ fontFamily: event.target.value }));
+  fontFamily.addEventListener("input", (event) => {
+    updateActiveText({ fontFamily: event.target.value });
+    redrawWhenFontsAreReady();
+  });
   lineHeight.addEventListener("input", (event) => updateActiveText({ lineHeight: Number(event.target.value) }));
 
   textList.addEventListener("click", (event) => {
@@ -429,3 +437,4 @@ initFormats();
 initFonts();
 bindEvents();
 setFormat("drill");
+redrawWhenFontsAreReady();
