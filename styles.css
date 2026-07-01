@@ -115,6 +115,11 @@ canvas {
   max-height: calc(100vh - 170px);
   background: #ffffff;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+  touch-action: none;
+}
+
+canvas.is-dragging {
+  cursor: grabbing;
 }
 
 .controls {
@@ -239,6 +244,12 @@ input[type="range"] {
   background: var(--surface-soft);
 }
 
+.image-adjust {
+  margin-top: 4px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -269,6 +280,10 @@ input[type="range"] {
   border: 1px solid var(--accent);
   background: #e7f0eb;
   color: var(--accent-strong);
+}
+
+.full-width {
+  width: 100%;
 }
 
 .danger-button {
